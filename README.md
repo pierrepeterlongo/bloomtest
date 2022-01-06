@@ -1,4 +1,4 @@
-Votre objectif est de créer une librairie de filtres de blooms capable de charger les k-mers d'un génome puis de le requêter. Les propriétés et requêtes sont expliquées dans la sous partie "Librairie filtre de blooms"
+Votre objectif est de créer une librairie de filtres de Bloom capable de charger les k-mers d'un génome puis de le requêter. Les propriétés et requêtes sont expliquées dans la sous partie "Librairie filtre de Bloom".
 
 ATTENTION : Veillez à bien tout lire de ce fichier avant de vous lancer dans la programmation.
 
@@ -6,37 +6,38 @@ ATTENTION : Veillez à bien tout lire de ce fichier avant de vous lancer dans la
 # Projet global
 
 Je vous demande de produire un logiciel qui prend en ligne de commande:
-- 1 fichier fasta
-- Une valeur de k (inférieur ou égal à 31)
-- Une taille n de filtre de bloom (max 2^34 (16 Go))
-- Une valeur nf qui donne le nombre de fonction de hashage (max 64)
-- Une valeur r d'un nombre de requête.
+- 1 fichier au format [FASTA](https://fr.wikipedia.org/wiki/FASTA_(format_de_fichier))
+- Un entier k (inférieur ou égal à 31)
+- Un entier n pour la taille du filtre de Bloom (max 2^34 (16 Go))
+- Un entier nf qui donne le nombre de fonction de hashage (max 64)
+- Un entier r pour un nombre de requêtes.
 
-Ce logiciel doit construire en interne un filtre de bloom de taille n avec nf fonctions de hashages puis le remplir avec tous les k-mers du fichier passé en entrée.
+Ce logiciel doit construire en interne un [filtre de Bloom](https://fr.wikipedia.org/wiki/Filtre_de_Bloom) de taille n avec nf fonctions de hashages puis le remplir avec tous les k-mers du fichier passé en entrée.
 Il doit ensuite effectuer r requêtes aléatoires is_present sur le filtre de bloom (ie générer r kmers aléatoires et les rechercher)
 
 Exemple de ligne de commande:
 ```bash
-  #         fichier          k    n   nf   r
+  #         fichier          k    n    nf  r
   ./monprog data/ecoli.fasta 31 456637 3 10000
 ```
 
 ## Mes attentes
 
-- Un github contenant votre projet dont le lien m'est envoyé avant lundi 24 Janvier (avant == max le 23 à 23h59 et 59s)  
-- Un readme dans le github expliquant comment compiler et exécuter votre code.
+- Un repo Github contenant votre projet dont le lien m'est envoyé avant lundi 24 Janvier (max le 23 Janvier à 23h59)
+- Un readme dans le Github expliquant comment compiler et exécuter votre code.
 - Un code qui compile
 - Un code qui s'exécute avec la ligne de commande que vous avez donné.
 - Des fichiers commentés
 - Un code propre et reprenable par quelqu'un d'autre.
+- Langage de programmation: C++ fortement recommandé. Rust ou Python aussi acceptés.
 
 
 ## Les étapes du projets
 
 Je vous conseille de procéder par résolution des étapes suivantes dans l'ordre :  
-- Télécharger un génome (commencez par le plus petit)  
-- Faites vous une fonction qui vous permet de lire le fichier fasta de manière à ce que chaque appel à la fonction vous renvoie uniquement le caractère suivant de la séquence ADN  
-- Faites une fonction qui encode un tableau de caractère de taille k en une valeur entière.
+- Télécharger un génome (voir ci-dessous, commencez par le plus petit)  
+- Faites-vous une fonction qui vous permet de lire le fichier fasta de manière à ce que chaque appel à la fonction vous renvoie uniquement le caractère suivant de la séquence ADN  
+- Faites une fonction qui encode une chaine de caractères de taille k en une valeur entière (i.e. une fonction de hash).
 - Créez un fonction qui à partir d'un kmer précédent et une lecture du caractère suivant dans le fichier vous donne l'entier correspondant au kmer suivant.  
 - Créez une classe bloom filter suivant la librairie
 - Listez tous les k-mer dans l'ordre du fichier, les hasher, les entrer dans le filtre de bloom
@@ -44,14 +45,14 @@ Je vous conseille de procéder par résolution des étapes suivantes dans l'ordr
 - Bravo, vous avez fini le code
 
 
-# Librairie filtre de blooms
+# Librairie filtre de Bloom
 
 Rappel de ce qu'est un filtre de bloom : https://fr.wikipedia.org/wiki/Filtre_de_Bloom  
 
-Vous devrez coder une librairie (ici classe) de filtre de blooms.
-Cette classe contient un tableau de Bytes (8 bits / Byte).
-Si le bloom filter est de taille n, le tableau fera une taille n/8 + 1.
-Ce bloom filter aura 3 fonctions : un constructeur, add_value et is_present.
+Vous devrez coder une librairie (sous la forme de classe) de filtre de Bloom.
+Cette classe contient un tableau de Bytes (i.e. 8 bits par Byte).
+Si le Bloom filter est de taille n, le tableau fera une taille n/8 + 1.
+La classe devra avoir 3 fonctions : un constructeur, `add_value` et `is_present`.
 
 ## Constructeur
 
