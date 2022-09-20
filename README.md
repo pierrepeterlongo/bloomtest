@@ -86,7 +86,7 @@ Pour télécharger un génome il faut:
 
 - Virus (Sars-Cov-2): https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2  
 - Bactérie (e.coli): https://www.ncbi.nlm.nih.gov/nuccore/NZ_LN874954.1  
-- Humain (Chromosome 1): https://www.ncbi.nlm.nih.gov/nuccore/NC_008801.1
+- Mamifère (Opossums gris à queue courte): https://www.ncbi.nlm.nih.gov/nuccore/NC_008801.1
 
 ## Lecture du fichier .fasta
 
