@@ -8,7 +8,7 @@ ATTENTION : Veillez à bien tout lire de ce fichier avant de vous lancer dans la
 Nous vous demandons de produire un logiciel qui prend en ligne de commande:
 - 1 fichier au format [FASTA](https://fr.wikipedia.org/wiki/FASTA_(format_de_fichier))
 - Un entier k (inférieur ou égal à 31)
-- Un entier n pour la taille du filtre de Bloom (max 2^34 (16 Go))
+- Un entier n pour la taille du filtre de Bloom (max $2^34$ (16 Go))
 - Un entier nf qui donne le nombre de fonction de hashage (max 64)
 - Un entier r pour un nombre de requêtes.
 
@@ -115,7 +115,7 @@ Ainsi la séquence ACTT avec k=3 doit générer ACT et CTT.
   
 Pour pouvoir entrer un k-mer dans un BF, vous devez le transformer en entier.
 Pour cela vous pourrez utiliser l'encodage 2 bits de votre choix.
-Par exemple avec l'encodage A:0 C:1 T:2 G:3 le kmer CTT vaut 1 * 4^2 + 2 * 4^1 + 2 * 4^0 = 26.
+Par exemple avec l'encodage A:0 C:1 T:2 G:3 le kmer CTT vaut $1 * 4^2 + 2 * 4^1 + 2 * 4^0 = 26$.
 
 
 ## Reverse complement.
