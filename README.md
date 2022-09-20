@@ -5,7 +5,7 @@ ATTENTION : Veillez à bien tout lire de ce fichier avant de vous lancer dans la
 
 # Projet global
 
-Je vous demande de produire un logiciel qui prend en ligne de commande:
+Nous vous demandons de produire un logiciel qui prend en ligne de commande:
 - 1 fichier au format [FASTA](https://fr.wikipedia.org/wiki/FASTA_(format_de_fichier))
 - Un entier k (inférieur ou égal à 31)
 - Un entier n pour la taille du filtre de Bloom (max 2^34 (16 Go))
@@ -16,14 +16,15 @@ Ce logiciel doit construire en interne un [filtre de Bloom](https://fr.wikipedia
 Il doit ensuite effectuer r requêtes aléatoires is_present sur le filtre de bloom (ie générer r kmers aléatoires et les rechercher)
 
 Exemple de ligne de commande:
+
 ```bash
   #         fichier          k    n    nf  r
   ./monprog data/ecoli.fasta 31 456637 3 10000
 ```
 
-## Mes attentes
+## Attentes
 
-- Un repo Github contenant votre projet dont le lien m'est envoyé avant lundi 24 Janvier (max le 23 Janvier à 23h59)
+- Un repo Github contenant votre projet dont le lien nous sera envoyé avant Jeudi 6 octobre à midi.
 - Un readme dans le Github expliquant comment compiler et exécuter votre code.
 - Un code qui compile
 - Un code qui s'exécute avec la ligne de commande que vous avez donné.
@@ -34,7 +35,7 @@ Exemple de ligne de commande:
 
 ## Les étapes du projets
 
-Je vous conseille de procéder par résolution des étapes suivantes dans l'ordre :  
+Nous vous conseillons de procéder par résolution des étapes suivantes dans l'ordre :  
 - Télécharger un génome (voir ci-dessous, commencez par le plus petit)  
 - Faites-vous une fonction qui vous permet de lire le fichier fasta de manière à ce que chaque appel à la fonction vous renvoie uniquement le caractère suivant de la séquence ADN  
 - Faites une fonction qui encode une chaine de caractères de taille k en une valeur entière (i.e. une fonction de hash).
@@ -102,7 +103,7 @@ Pour ce projets, ignorez les N.
 Ainsi, si la séquence est ACTTNNNNATNGCT considérez à la place que c'est ACTTATGCT.
 TTA est donc un 3-mer valide ici.
 Votre lecteur de fichier dois passer par dessus ces caractères sans les retourner.
-ATTENTION : Lorsque je testerai votre code, j'utiliserai des séquences avec des N. Votre programme ne dois pas planter.
+ATTENTION : Lorsque nous testerons votre code, nous utiliserons des séquences avec des N. Votre programme ne dois pas planter.
 
 
 
@@ -125,5 +126,5 @@ Ce qui veut alors dire que chaque séquence peut être lue à l'endroit normalem
 ACTT peut donc également être lue comme AAGT.
 Chaque k-mer a donc un reverse complement.
 Pour choisir entre les deux formes d'un k-mer, nous prendrons toujours celui qui est le plus petit dans l'ordre lexicographique.
-Dans l'exemple précédent, j'ai dit que la séquence ACTT générait 2 3-mers ACT et CTT.
+Dans l'exemple précédent, la séquence ACTT génère 2 3-mers ACT et CTT.
 En appliquant la règle du plus petit lexicographique on génère ACT (plus petit que  son reverse complement AGT) et AAG (plus petit que CTT).
