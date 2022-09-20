@@ -8,7 +8,7 @@ ATTENTION : Veillez à bien tout lire de ce fichier avant de vous lancer dans la
 Nous vous demandons de produire un logiciel qui prend en ligne de commande:
 - 1 fichier au format [FASTA](https://fr.wikipedia.org/wiki/FASTA_(format_de_fichier))
 - Un entier k (inférieur ou égal à 31)
-- Un entier n pour la taille du filtre de Bloom (max $2^34$ (16 Go))
+- Un entier n pour la taille du filtre de Bloom (max $2^{34}$ (16 Go))
 - Un entier nf qui donne le nombre de fonction de hashage (max 64)
 - Un entier r pour un nombre de requêtes.
 
