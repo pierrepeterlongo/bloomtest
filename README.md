@@ -30,7 +30,7 @@ Exemple de ligne de commande:
 - Un code qui s'exécute avec la ligne de commande que vous avez donné.
 - Des fichiers commentés
 - Un code propre et reprenable par quelqu'un d'autre.
-- Langage de programmation: C++ fortement recommandé. Rust ou Python aussi acceptés.
+- Langage de programmation: C++ fortement recommandé. Rust ou autre langage bas niveau aussi acceptés.
 
 
 ## Les étapes du projets
