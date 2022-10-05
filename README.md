@@ -63,8 +63,8 @@ Le filtre de bloom est construit vide mais avec 2 paramètres:
 
 ## add_value
 
-La fonction permet d'ajouter une nouvelle entrée x dans le bloom filter.
-Cette entrée doit être hashée nf fois en utilisant la fonction xorshift fournie dans le fichier hash.cpp puis les bits correspondant doivent être mis à 1.
+La fonction permet d'ajouter une nouvelle entrée x dans le bloom filter.nf
+Les `nf` valeurs de hashage de cette entrée sont calculées en utilisant la fonction xorshift fournie dans le fichier hash.cpp. Puis les `nf` bits correspondant doivent être mis à 1.
 Attention, la valeur 0 ne peut pas être hashée (elle retourne toujours 0).
 Trouvez une astuce pour contourner ce problème.
 
